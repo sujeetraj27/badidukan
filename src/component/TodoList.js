@@ -63,6 +63,7 @@ const TodoList = ({ elem, setItems, items }) => {
                         <i className="fa fa-trash" onClick={() => deleteItem(elem.id)}></i>
                     </div>
                 </div>)
+                
             }
 
             {
