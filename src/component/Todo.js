@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TodoList from './TodoList';
 
 const Todo = () => {
 
@@ -16,9 +17,10 @@ const Todo = () => {
     const [inputData, setInputData] = useState('');
     const [items, setItems] = useState(getLocalItems());
 
-    const [toggleSubmit, setToggleSubmit] = useState(true);
-    const [isEditItem, setIsEditItem] = useState(null);
-    const [editText, setEditText] = useState(null);
+    // const [toggleSubmit, setToggleSubmit] = useState(true);
+    // const [isEditItem, setIsEditItem] = useState(null);
+    // const [editText, setEditText] = useState(null);
+    // const [line, setLine] = useState(false)
 
     const addItem = (e) => {
         e.preventDefault();
@@ -34,45 +36,54 @@ const Todo = () => {
 
     }
 
-    const deleteItem = (index) => {
+    // const deleteItem = (index) => {
 
-        const updatedItem = items.filter((elem) => {
-            return index !== elem.id;
-        });
+    //     const updatedItem = items.filter((elem) => {
+    //         return index !== elem.id;
+    //     });
 
-        setItems(updatedItem)
-    }
+    //     setItems(updatedItem)
+    // }
 
-    const editItem = (id) => {
-        const newEditItem = items.find((elem) => {
-            return elem.id === id;
-        });
+    // const editItem = (id) => {
+    //     const newEditItem = items.find((elem) => {
+    //         return elem.id === id;
+    //     });
 
-        setToggleSubmit(false)
-        setEditText(newEditItem.name)
+    //     setToggleSubmit(false)
+    //     setEditText(newEditItem.name)
 
-        setIsEditItem(id)
-    }
+    //     setIsEditItem(id)
+    // }
 
-    const editAddItem = (id) => {
-        console.log(id)
-        const newSddItem = items.filter((elem) => {
-            return elem.id === id;
-        })
-        if (newSddItem.length != 0) {
-            newSddItem[0].name = editText
-        }
-        console.log(newSddItem)
-        setItems(items)
-        setIsEditItem(null)
-        setEditText('')
-        console.log("gfhjk")
-    }
+    // const editAddItem = (id) => {
+    //     console.log(id)
+    //     const newSddItem = items.filter((elem) => {
+    //         return elem.id === id;
+    //     })
+    //     if (newSddItem.length != 0) {
+    //         newSddItem[0].name = editText
+    //     }
+    //     console.log(newSddItem)
+    //     setItems(items)
+    //     setIsEditItem(null)
+    //     setEditText('')
+    //     console.log("gfhjk")
+    // }
 
-    const deleteEditItem = () => {
-        setIsEditItem('')
-    }
+    // const deleteEditItem = () => {
+    //     setIsEditItem('')
+    // }
 
+    // const cutIt = (id) =>{
+    //     const cutItem = items.filter((elem) => {
+    //         return elem.id === id;
+    //     })
+    //     if (cutItem.length != 0) {
+    //         cutItem[0].name = line
+    //     }
+    //     setLine(cutItem, true)
+    // }
 
     return (
         <div className="main-div">
@@ -84,7 +95,7 @@ const Todo = () => {
                         id=""
                         placeholder="Add your list"
                         value={inputData}
-                        onChange={(e) => setInputData(e.target.value)}/>
+                        onChange={(e) => setInputData(e.target.value)} />
 
                     <i class="fa fa-plus" title="Add Item" onClick={addItem}></i>
 
@@ -95,11 +106,12 @@ const Todo = () => {
                 <div className="showItem">
                     {
                         items.map((elem) => {
-                            return <>
-                                {
+                            return <TodoList elem ={elem} setItems={setItems} items={items}/>
+                                {/* {
                                     isEditItem !== elem.id && (<div className="eachItem" key={elem.id}>
-                                        <h3>{elem.name}</h3>
+                                        <h3 style={{ textDecoration: line ? "line-through" : "none"}}>{elem.name}</h3>
                                         <div className="todo-btn">
+                                        <i className="fa fa-cut" onClick={()=>cutIt(elem.id)}></i>
                                             <i className="fa fa-edit" onClick={() => editItem(elem.id)}></i>
                                             <i className="fa fa-trash" onClick={() => deleteItem(elem.id)}></i>
                                         </div>
@@ -112,15 +124,16 @@ const Todo = () => {
                                             <div className="showItem">
                                                 <input type="text" defaultValue={elem.name} value={editText} onChange={(e) => setEditText(e.target.value)}></input>
                                                 <div className="todo-btn-edit">
+                                                    
                                                     <i className="fa fa-remove" onClick={() => deleteEditItem()} ></i>
                                                     <i className="fa fa-save" onClick={() => editAddItem(elem.id)}></i>
                                                 </div>
                                             </div>
                                         </>
                                     )
-                                }
+                                } */}
 
-                            </>
+                            
                         })
                     }
 

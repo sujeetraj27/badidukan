@@ -161,6 +161,11 @@ input:focus {
   color: gray;
   background-color: transparent;
 }
+.fa-cut {
+  margin-left: -9.5rem;
+  color: gray;
+  background-color: transparent;
+}
 
 .todo-btn-edit{
   width: 5rem;
@@ -169,6 +174,7 @@ input:focus {
   margin-left: 35rem;
   justify-content: space-around;
 }
+
 
 
 /*  Please Subscribe to ThapaTechnical Youtube Channel
@@ -252,6 +258,7 @@ input:focus {
 }
 .login{
   margin-top: 5rem;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
 }
